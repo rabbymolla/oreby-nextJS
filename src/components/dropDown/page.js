@@ -75,7 +75,7 @@ const DropDown = ({ ManuData }) => {
                     </div>
                   </Link>
 
-                  {console.log(subItem.productMenu)}
+                  {/* {console.log(subItem.productMenu)} */}
 
                   {subItem.productMenu && subItem.productMenu.length > 0 && (
                     <ul

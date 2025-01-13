@@ -1,8 +1,8 @@
 "use client";
 import React, { useRef } from "react";
 import NoScroll from "@/helper/NoScroll";
-import OutSideClick from "@/helper/outSideClick";
 import { IoCloseSharp } from "react-icons/io5";
+import OutSideClick from "@/helper/OutSideClick";
 
 const Login = ({ setVisible, visible }) => {
   const outSideClick = useRef(null);
