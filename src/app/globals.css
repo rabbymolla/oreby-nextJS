@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark_color: #262626;
+  --white_color: #ffffff;
+  --cultured_color: #f5f5f3;
+  --silver_color: #c4c4c4;
+  --lucky_color: #767676;
+  --button_color: #9b34eb;
+  --red_color: #fc0202;
+  --opacity_bg: rgba(255, 255, 255, 0.5);
+}
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* body {
+  background-color: var(--main_bg);
+}
+.dark {
+  --main_bg: #212121;
+  --primary_bg: #fff;
+  --page_bg: #b9b1b1;
+  --opacity_bg: rgba(0, 0, 0, 0.5);
+} */
+
+/* CSS Animation */
+.nav-scroll {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+/* Keyframes Definition */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%); /* Start above the viewport */
+    opacity: 0; /* Fully transparent */
+  }
+  to {
+    transform: translateY(0); /* Move into view */
+    opacity: 1; /* Fully visible */
+  }
+}
