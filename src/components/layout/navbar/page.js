@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../../public/assets/Logo.png";
+import Logo from "../../../../public/assets/Logo.png";
 import { FaBars } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import NavRightPart from "../../components/navbarRightPart/page";
-import Login from "../login/page";
+import NavRightPart from "../../navbarRightPart/page";
 import NavNoScroll from "@/helper/NavNoScroll";
+import Login from "../navLogin/page";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -47,7 +47,7 @@ const Navbar = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleScroll = () => {
-        if (window.scrollY >= 50) {
+        if (window.scrollY >= 250) {
           setNavShow(true);
         } else {
           setNavShow(false);
@@ -67,7 +67,7 @@ const Navbar = () => {
     <>
       <nav
         className={`${
-          navShow ? "nav-scroll fixed top-0 left-0 w-full " : ""
+          navShow ? "nav-scroll fixed top-0 left-0 w-full z-50 " : ""
         }py-8 bg-white_color shadow-md`}
       >
         <div className="container lg:flex lg:items-center lg:justify-between">
