@@ -48,7 +48,7 @@ const DropDown = ({ ManuData }) => {
                 hoveredItem === data.id
                   ? "opacity-100 visible translate-x-0"
                   : "opacity-0 invisible -translate-x-2"
-              }  bottom-0 left-14 md:top-0 md:left-full bg-cultured_color w-10/12 md:w-full md:h-full h-0 shadow-md transition-all duration-500 md:duration-200 ease-in-out z-30`}
+              }  bottom-0 right-0 md:top-0 md:left-full bg-cultured_color w-10/12 md:w-full md:h-full h-0 shadow-md transition-all duration-500 md:duration-200 ease-in-out z-30`}
             >
               <div className="bg-cultured_color shadow-lg md:shadow-none md:bg-transparent">
                 {data.subMenu.slice(0, 6).map((subItem) => (
@@ -80,7 +80,7 @@ const DropDown = ({ ManuData }) => {
                           hoveredSubItem === subItem.id
                             ? "opacity-100 visible"
                             : "opacity-0 invisible"
-                        } top-10 md:top-0 left-5 md:left-full bg-cultured_color w-11/12  md:w-full md:h-full h-0 shadow-md transition-all duration-200 ease-in-out z-30 `}
+                        } -bottom-10 md:top-0 right-7 md:left-full bg-cultured_color w-auto md:w-full md:h-full h-0 shadow-md transition-all duration-200 ease-in-out z-30 `}
                       >
                         <div className="bg-cultured_color md:bg-transparent shadow-lg md:shadow-none">
                           {subItem.productMenu.slice(0, 6).map((prodData) => (

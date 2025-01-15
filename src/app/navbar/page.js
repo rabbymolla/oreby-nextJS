@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import NavRightPart from "../../components/navbarRightPart/page";
 import NavNoScroll from "@/helper/NavNoScroll";
-import NavLogin from "@/app/login/page";
+import LoginModal from "@/app/loginModal/page";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -133,7 +133,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {visible && <NavLogin setVisible={setVisible} visible={visible} />}
+      {visible && <LoginModal setVisible={setVisible} visible={visible} />}
     </>
   );
 };
