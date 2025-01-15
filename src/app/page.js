@@ -1,12 +1,9 @@
-import Layout from "../components/layout/layout";
-import Banner from "./pages/banner/page";
+import Banner from "./banner/page";
 
 export default function Home() {
   return (
     <>
-      <Layout>
-        <Banner />
-      </Layout>
+      <Banner />
     </>
   );
 }

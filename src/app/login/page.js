@@ -4,7 +4,7 @@ import NoScroll from "@/helper/NoScroll";
 import { IoCloseSharp } from "react-icons/io5";
 import OutSideClick from "@/helper/OutSideClick";
 
-const Login = ({ setVisible, visible }) => {
+const NavLogin = ({ setVisible, visible }) => {
   const outSideClick = useRef(null);
   OutSideClick(outSideClick, () => {
     setVisible(false);
@@ -48,4 +48,4 @@ const Login = ({ setVisible, visible }) => {
   );
 };
 
-export default Login;
+export default NavLogin;

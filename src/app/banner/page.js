@@ -5,13 +5,13 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import Link from "next/link";
-import defaultSlider from "../../../../public/assets/slider1.png";
+import defaultSlider from "../../../public/assets/slider1.png";
 
 function SampleNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 right-2 -translate-y-1/2 bg-silver_color rounded-full p-2 cursor-pointer z-10 text-white_color opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      className="absolute top-1/2 right-0 md:right-2 -translate-y-1/2 bg-silver_color rounded-full p-2 cursor-pointer z-10 text-white_color opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       onClick={onClick}
     >
       <FaAngleRight size={20} />
@@ -23,7 +23,7 @@ function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 left-2 -translate-y-1/2 bg-silver_color rounded-full p-2 cursor-pointer z-10 text-white_color opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      className="absolute top-1/2 left-0 md:left-2 -translate-y-1/2 bg-silver_color rounded-full z-10 p-2 cursor-pointer text-white_color opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       onClick={onClick}
     >
       <FaAngleLeft size={20} />
@@ -108,10 +108,10 @@ const Banner = () => {
                 alt={data.alt || "Banner Image"} // Add default alt text
                 width={1920}
                 height={1080}
-                placeholder={data.blurDataURL ? "blur" : undefined}
-                blurDataURL={data.blurDataURL || ""}
-                priority={data === 0} // Only prioritize the first image
-                loading={data === 0 ? "eager" : "lazy"} // Lazy load all images except the first
+                // placeholder={data.blurDataURL ? "blur" : undefined}
+                // blurDataURL={data.blurDataURL || ""}
+                // priority={data === 0} // Only prioritize the first image
+                // loading={data === 0 ? "eager" : "lazy"} // Lazy load all images except the first
               />
             </Link>
           </div>

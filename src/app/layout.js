@@ -2,6 +2,9 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import "slick-carousel/slick/slick.css";
+import Navbar from "@/app/navbar/page";
+import Header from "@/app/header/page";
+import Footer from "@/app/footer/page";
 // import "slick-carousel/slick/slick-theme.css";
 
 const dmSans = DM_Sans({
@@ -32,7 +35,12 @@ export default function RootLayout({ children }) {
           href={metadata.icons.android}
         />
       </Head>
-      <body className={`${dmSans.variable} antialiased`}>{children}</body>
+      <body className={`${dmSans.variable} antialiased`}>
+        <Navbar />
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

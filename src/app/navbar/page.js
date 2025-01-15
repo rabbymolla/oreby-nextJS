@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../../../public/assets/Logo.png";
+import Logo from "../../../public/assets/Logo.png";
 import { FaBars } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import NavRightPart from "../../navbarRightPart/page";
+import NavRightPart from "../../components/navbarRightPart/page";
 import NavNoScroll from "@/helper/NavNoScroll";
-import Login from "../navLogin/page";
+import NavLogin from "@/app/login/page";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -97,18 +97,18 @@ const Navbar = () => {
               show
                 ? "opacity-100 translate-x-0 visible "
                 : "opacity-0 translate-x-full invisible "
-            } fixed top-16 left-0 lg:relative lg:top-0 lg:left-0 w-full lg:w-[60%] h-screen lg:h-auto bg-white_color lg:bg-transparent mt-5 lg:mt-0 p-5 lg:p-0 overflow-y-auto lg:overflow-auto transition-all duration-500 ease-in-out shadow-md lg:shadow-none z-10`}
+            } fixed top-16 left-0 lg:relative lg:top-0 lg:left-0 w-full lg:w-[60%] h-screen lg:h-auto bg-white_color lg:bg-transparent mt-5 lg:mt-0 p-5 lg:p-0 overflow-y-auto lg:overflow-auto transition-all duration-500 ease-in-out shadow-md lg:shadow-none z-20`}
           >
             <ul className="lg:flex lg:items-center lg:justify-center lg:gap-x-10">
               <li className="font-DmSans font-bold text-lg lg:text-base text-lucky_color hover:text-dark_color ease-linear duration-100 uppercase">
-                <Link href="" className="relative group">
+                <Link href="/" className="relative group">
                   Home
                   {/* Active state styling */}
                   <span className="absolute inset-0 bg-transparent group-active:bg-lucky_color" />
                 </Link>
               </li>
               <li className="font-DmSans font-bold text-lg lg:text-base text-lucky_color hover:text-dark_color ease-linear duration-100 my-7 lg:my-0 uppercase">
-                <Link href="#">Shop</Link>
+                <Link href="/shop">Shop</Link>
               </li>
               <li className="font-DmSans font-bold text-lg lg:text-base text-lucky_color hover:text-dark_color ease-linear duration-100 uppercase">
                 <Link href="#">About</Link>
@@ -133,7 +133,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {visible && <Login setVisible={setVisible} visible={visible} />}
+      {visible && <NavLogin setVisible={setVisible} visible={visible} />}
     </>
   );
 };
