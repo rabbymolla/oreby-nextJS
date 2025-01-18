@@ -55,7 +55,10 @@ const DropDown = ({ ManuData }) => {
           onMouseLeave={handleMouseLeave}
           className="relative md:static font-DmSans font-bold text-base text-lucky_color hover:text-button_color ease-linear duration-100 uppercase px-3 py-2 hover:bg-white_color"
         >
-          <Link href={data.link} className="flex items-center justify-between">
+          <Link
+            href={data.link || "#"}
+            className="flex items-center justify-between"
+          >
             {data.title}
             <div
               className={`text-base ${

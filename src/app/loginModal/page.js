@@ -13,7 +13,7 @@ const LoginModal = ({ setVisible, visible }) => {
   NoScroll(visible);
 
   return (
-    <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-opcity_color z-10">
+    <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-opcity_color z-40">
       <div
         ref={outSideClick}
         className="bg-white_color rounded-md shadow-xl w-full sm:w-[500px] relative"
