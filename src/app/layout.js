@@ -38,6 +38,7 @@ export default function RootLayout({ children }) {
       <body className={`${dmSans.variable} antialiased`}>
         <Navbar />
         <Header />
+
         {children}
         <Footer />
       </body>

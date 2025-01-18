@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import NavRightPart from "../../components/navbarRightPart/page";
 import NavNoScroll from "@/helper/NavNoScroll";
-import LoginModal from "@/app/loginModal/page";
+import LoginModal from "../loginModal/page";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);

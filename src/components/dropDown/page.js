@@ -1,25 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 
 const DropDown = ({ ManuData }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredSubItem, setHoveredSubItem] = useState(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768); // Tailwind's `lg` breakpoint is 1024px
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleToggle = (id) => {
+    setHoveredItem((prev) => (prev === id ? null : id));
+  };
+
+  const handleSubToggle = (id) => {
+    setHoveredSubItem((prev) => (prev === id ? null : id));
+  };
 
   const handleMouseEnter = (id) => {
-    setHoveredItem(id);
+    if (!isSmallScreen) setHoveredItem(id);
   };
 
   const handleMouseLeave = () => {
-    setHoveredItem(null);
+    if (!isSmallScreen) setHoveredItem(null);
   };
 
   const handleSubMouseEnter = (id) => {
-    setHoveredSubItem(id);
+    if (!isSmallScreen) setHoveredSubItem(id);
   };
 
   const handleSubMouseLeave = () => {
-    setHoveredSubItem(null);
+    if (!isSmallScreen) setHoveredSubItem(null);
   };
 
   return (
@@ -27,9 +50,10 @@ const DropDown = ({ ManuData }) => {
       {ManuData.map((data) => (
         <li
           key={data.id}
+          onClick={() => isSmallScreen && handleToggle(data.id)}
           onMouseEnter={() => handleMouseEnter(data.id)}
           onMouseLeave={handleMouseLeave}
-          className="relative md:static font-DmSans font-bold text-base text-lucky_color hover:text-button_color ease-linear duration-100 uppercase px-3 py-2 hover:bg-white_color ]"
+          className="relative md:static font-DmSans font-bold text-base text-lucky_color hover:text-button_color ease-linear duration-100 uppercase px-3 py-2 hover:bg-white_color"
         >
           <Link href={data.link} className="flex items-center justify-between">
             {data.title}
@@ -54,6 +78,7 @@ const DropDown = ({ ManuData }) => {
                 {data.subMenu.slice(0, 6).map((subItem) => (
                   <li
                     key={subItem.id}
+                    onClick={() => isSmallScreen && handleSubToggle(subItem.id)}
                     onMouseEnter={() => handleSubMouseEnter(subItem.id)}
                     onMouseLeave={handleSubMouseLeave}
                     className="font-DmSans font-bold text-base text-lucky_color hover:text-button_color ease-linear duration-100 uppercase px-3 py-2 hover:bg-white_color"
