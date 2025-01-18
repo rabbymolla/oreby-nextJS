@@ -1,11 +1,14 @@
 "use client";
-import React, { useRef } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import NoScroll from "@/helper/NoScroll";
 import { IoCloseSharp } from "react-icons/io5";
 import OutSideClick from "@/helper/OutSideClick";
+import Login from "@/app/login/page";
+import LoadingPage from "@/app/loading";
 
 const LoginModal = ({ setVisible, visible }) => {
   const outSideClick = useRef(null);
+  const [hadding, setHadding] = useState(true);
   OutSideClick(outSideClick, () => {
     setVisible(false);
   });
@@ -16,13 +19,13 @@ const LoginModal = ({ setVisible, visible }) => {
     <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-opcity_color z-40">
       <div
         ref={outSideClick}
-        className="bg-white_color rounded-md shadow-xl w-full sm:w-[500px] relative"
+        className="bg-white_color border border-silver_color  rounded-md shadow-xl w-full sm:w-[500px] relative"
       >
         {/* this is for tittle bar for modal */}
-        <div className="border-b p-4 border-b-lucky_color border-solid">
+        <div className="p-4 ">
           <div className="text-center ">
             <h1 className="font-DmSans font-bold text-xl text-dark_color">
-              Login
+              {hadding ? "Login" : "Registation"}
             </h1>
           </div>
           <div
@@ -33,15 +36,10 @@ const LoginModal = ({ setVisible, visible }) => {
           </div>
         </div>
         {/* this is for tittle bar for modal */}
-        <div>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae,
-            deleniti quam eius veniam eveniet placeat tempora modi repellat sint
-            non consequuntur animi quas excepturi pariatur reiciendis distinctio
-            numquam suscipit voluptatibus aspernatur? Accusantium, ipsa?
-            Nesciunt, incidunt laborum quas illo corporis nemo? Aliquid dicta
-            quidem aut similique in harum repudiandae, quod minus.
-          </p>
+        <div className="p-4">
+          <Suspense fallback={<LoadingPage />}>
+            <Login />
+          </Suspense>
         </div>
       </div>
     </div>

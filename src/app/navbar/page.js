@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import NavRightPart from "../../components/navbarRightPart/page";
 import NavNoScroll from "@/helper/NavNoScroll";
-import LoginModal from "../loginModal/page";
+import LoginModal from "../../components/loginModal/page";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -23,6 +23,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    //setShow(false);
     const widthScroll = () => {
       if (typeof window !== "undefined" && window.innerWidth < 991) {
         setShow(false);
